@@ -34,11 +34,8 @@ def creatMatrix(data,date_line,time_space):
     print len(recommend_people)
 
 
-
-
-
-
 def main():
+    # 参数设置
     date_line = Date2Second('2014/10/1 0:0')
     time_space = 7*24*60*60
     # 读取数据文件  item,user,active,time
