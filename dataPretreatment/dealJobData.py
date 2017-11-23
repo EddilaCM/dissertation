@@ -52,17 +52,12 @@ def areaCut(arg):
         arg = arg.replace('\n','')
         arg1 = arg.decode('gbk')
         area = arg1.split('·')[0]
-        area1 = area.decode('utf-8')
+        area1 = area.decode('utf-8').encode('gb2312')
         return area1
 
 
 if __name__ == '__main__':
-    # r = '上海·漕宝路'
-    # print areaCut(r)
-    # print "hhhh",r.decode('utf-8')
-    # print timefixed('18:32发布')
-    # print timefixed('2017-11-08')
-    # read no dealing file
+    # open origin data file
     filename = '../basedSpider/dataFile/laGou_JobList_all20171108.csv'
     csvFile = open(filename,'r')
     reader = csv.reader(csvFile)
@@ -84,3 +79,6 @@ if __name__ == '__main__':
         writer.writerow(new_row)
     wiritcsv.close()
     csvFile.close()
+# attention  :(1) Generally, for Chinese, the coding of data from csv file is "GB2312",however, the database's is "UTF-8".
+#             (2)When open a csv file , there is a operation that "data.decode('GB2312').encode('utf-8')" need to be done.
+#                And  when save data on a csv file, we should let "data.decode('utf-8').encode('GB2312')" happend.
