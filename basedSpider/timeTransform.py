@@ -10,9 +10,9 @@ class TimeSwith:
 
     def Date2Second(self, Date):
         # date = Date.strftime("%Y-%m-%d %H:%S:%M")
-        date = time.strptime(Date,"%Y/%m/%d")
+        date = time.strptime(Date,"%Y/%m/%d %H:%M")
         return time.mktime(date)
 
 
 date1 = TimeSwith()
-print date1.Date2Second('2017/11/06')
+print date1.Date2Second('2017/11/06 0:00')
