@@ -2,6 +2,7 @@
 # -*- coding:utf-8 -*-
 from numpy import *  #导入numpy的库函数
 # import numpy as np  #这个方式使用numpy的函数时，需要以np.开头。
+import pandas as pd
 import csv
 import time
 
@@ -31,6 +32,7 @@ def creatMatrix(data,date_line,time_space):
         if lastTime[-1]>(date_line-time_space):
             recommend_people.append(person)
     print recommend_people
+    pd.DataFrame(recommend_people).to_csv('../dataset/recomendPeople_Lago.csv')
     print len(recommend_people)
 
 
